@@ -1,0 +1,19 @@
+<select [(ngModel)]="chartType">
+  <option value="1">Pie Chart</option>
+  <option value="2">Stacked bar Chart</option>
+  <option value="3">Table</option>
+</select>
+
+<div
+  *ngIf="chartType == '1' || chartType == '2'"
+  style="width: 400px; height: 400px;"
+>
+  <app-echart-view
+    [chart-type]="chartType"
+    [data-set]="dataSet"
+  ></app-echart-view>
+</div>
+
+<div *ngIf="chartType == '3'" style="width: 400px; height: 400px;">
+  <app-table-view [data-set]="dataSet"></app-table-view>
+</div>
